@@ -1,4 +1,4 @@
-#in case you want to use MySQL instead on your local host, use this confgiuration
+#in case you want to use MySQL instead, use this confgiuration
 import MySQLdb
 import sys
 try:
