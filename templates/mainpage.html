@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Latest compiled and minified CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><!-- Optional theme -->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><style>
+    body{background-color:lightblue}
+    h1{color:blue}
+    label{color:black}
+
+</style>
+<nav class="navbar navbar-inverse background-color:red navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"> Code2do </a>
+        </div>
+            <div class = "collapse navbar-collapse navHeaderCollapse">
+                <ul class ="nav navbar-nav navbar-right ">
+                    <li class="active"><a class="navbar-brand" href="/todo"> What to do ? </a></li>
+                    <li class="active"><a class="navbar-brand" href="/todo"> Coding  </a></li>
+                    <li class="active"><a class="navbar-brand" href="/logout"> logout</a></li>
+
+                </ul>
+            </div>
+    </div>
+</nav>
+<head>
+    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.css" type="text/css" />
+        <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.js"></script>
+{{ result[0]|safe }}
+    <meta charset="UTF-8">
+
+    <title>Code To do </title>
+</head>
+<body class="name">
+    <h1> code to do </h1>
+
+<!--Here we start using latex-->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript"
+ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+This web page visualizes the function \(
+u(t) = Ae^{-bt}\sin (w t), \hbox{ for } t\in [0,T]
+\).
+
+<form action="" method="POST">
+    <table>
+        <tr><td>
+    <table>
+    {% for field in form %}
+        <tr>
+            <td> {{field.name}}</td> <td>{{field}}</td> <td>{{field.label}}</td>
+            {% if field.errors %}
+              <td><ul class=errors>
+              {% for error in field.errors %}
+                 <li><font color="red">{{ error }}</font></li>
+              {% endfor %}</ul></td>
+             {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+    <P><input type="submit" value="Compute"></P>
+        </td><td>
+<br>
+<p>
+{% if result !=None %}
+<!--<img src="{{result}}"  width = "600 "height="400" />-->
+    {{ result[1]|safe }}
+    {{ result[2]|safe }}
+{% endif %}
+</p>
+        </td></tr></table>
+</form>
+</body>
+</html>
